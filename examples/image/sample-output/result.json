@@ -1,0 +1,7 @@
+{
+  "title": "Minimalist Coffee Grinder Hero Image",
+  "description": "A premium product-ad hero shot of a minimalist coffee grinder resting on a brushed-steel kitchen counter. Soft, diffused morning light streams in from a nearby window, casting gentle highlights across the matte-black grinder body and polished chrome accents. Shallow depth of field and generous negative space give the composition a clean, editorial feel suited for high-end advertising.",
+  "prompt": "Minimalist coffee grinder on a brushed-steel kitchen counter, soft diffused morning light from a nearby window, shallow depth of field, matte black grinder body with polished chrome accents, clean negative space, premium product advertisement aesthetic, editorial photography style",
+  "model": "gemini-2.5-flash",
+  "image_path": "assets/coffee-grinder.png"
+}

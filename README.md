@@ -1,10 +1,29 @@
 # Runway.Cli.Examples
 
-Agent-driven recipes for [`Runway.Cli`](https://github.com/tryAGI/Runway).
+**A visual showcase of [`Runway.Cli`](https://github.com/tryAGI/Runway) + the [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) agent skill + [Claude Code](https://claude.com/claude-code) as the orchestrator.**
 
-Each example is a tiny bash wrapper that hands a **minimal user-style prompt** to `claude -p` running headless. Claude — guided by the installed [`runway-cli` agent skill](https://github.com/tryAGI/Runway#use-as-an-agent-skill) — picks the right Runway CLI commands, generates intermediate assets when needed, and writes a final `result.json` describing what it made.
+Each example is a tiny bash wrapper that hands a **minimal user-style prompt** to `claude -p` running headless. Claude — guided by the installed `runway-cli` skill — picks the right Runway CLI commands, generates intermediate assets when needed, and writes a final `result.json` describing what it made.
 
 **No pre-existing assets are required.** Every example runs from zero.
+
+---
+
+## Showcase
+
+|                              | One-sentence prompt                                              | What Claude produced                                                                              | Time    |
+|------------------------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|---------|
+| **[`image`](./examples/image/)** | *"a minimalist coffee grinder on brushed steel, soft morning light"* | One Runway-generated PNG + `result.json` (title, description, prompt, model, image path)          | ~49 s   |
+| **[`manga`](./examples/manga/)** | *"a 3-page manga about a samurai cat befriending a rival ninja mouse"* | Character ref sheets + multi-page storyboard + rendered panels + `result.json` tying it together  | 3–17 min |
+
+### Preview
+
+|  `image`                                                                    |  `manga` (page 1)                                                                       |
+|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| ![coffee grinder](./examples/image/sample-output/assets/coffee-grinder.png) | ![manga p1 encounter](./examples/manga/sample-output/assets/03-p1-encounter.png) |
+
+See each example's README for the **full prompt, inputs, outputs, and run instructions** in a consistent layout (prompt → inputs → what Claude did → output → run it → cost).
+
+---
 
 ## Setup
 
@@ -26,32 +45,33 @@ cp .env.example .env
 npx skills add tryAGI/Runway -a claude-code -y
 ```
 
-This drops the skill at `.agents/skills/runway-cli/SKILL.md` (provided by the [skills.sh](https://skills.sh) ecosystem). Headless `claude -p` invocations in this repo pick it up automatically. The skill file itself is **not committed** — it is re-installed by `setup.sh` on a fresh clone.
+This drops the skill at `.claude/skills/runway-cli/SKILL.md` (provided by the [skills.sh](https://skills.sh) ecosystem). Headless `claude -p` invocations in this repo pick it up automatically. The skill file itself is **not committed** — it is re-installed by `setup.sh` on a fresh clone. The auto-generated [`skills-lock.json`](./skills-lock.json) records the exact source + hash for reproducibility.
 
 ## Run an example
 
 ```bash
-./examples/manga/run.sh
+./examples/image/run.sh     # ~49 s, ~$0.14
+./examples/manga/run.sh     # ~3–6 min with the workflow nudge
 ```
 
 Output lands in `output/<example>/<ISO-timestamp>/`:
 
 ```
-output/manga/2026-05-10T14-22-03Z/
+output/<example>/<timestamp>/
 ├── result.json     # the final JSON Claude produced
 ├── transcript.json # the raw `claude -p --output-format json` envelope
 ├── meta.json       # claude version, runway version, cost, session id
 └── assets/         # generated PNGs (and MP4s for video examples)
 ```
 
-Cost expectations: a single `manga` run typically costs a few cents in Anthropic tokens plus the underlying Runway generation calls. Check `meta.json` after each run for the exact figure.
+Each example also commits a `sample-output/` directory containing real artifacts from a real run, so the README previews are honest evidence rather than mockups.
 
 ## Examples index
 
 | Workflow                       | Status     | Path                              |
 |--------------------------------|------------|-----------------------------------|
-| image (json-to-image)          | shipped    | `examples/image/`                 |
-| manga (json-to-manga)          | shipped    | `examples/manga/`                 |
+| image (json-to-image)          | shipped    | [`examples/image/`](./examples/image/) |
+| manga (json-to-manga)          | shipped    | [`examples/manga/`](./examples/manga/) |
 | video                          | planned    | `examples/video/`                 |
 | image-to-video                 | planned    | `examples/image-to-video/`        |
 | short-video                    | planned    | `examples/short-video/`           |
@@ -67,28 +87,37 @@ Cost expectations: a single `manga` run typically costs a few cents in Anthropic
 | video-sandbox                  | planned    | `examples/video-sandbox/`         |
 | (more named workflows)         | planned    | —                                 |
 
-The goal is **one example per Runway CLI workflow**.
+The goal is **one example per Runway CLI workflow** — each with the same showcase layout so you can scan the whole repo and see Runway's surface area at a glance.
 
 ## Reproducibility
 
 Runs are non-deterministic. Each run captures a `meta.json` with:
 
 - `claude` CLI version
-- `dnx Runway.Cli` version
+- `runway` (Runway.Cli) version
 - total cost in USD
 - Anthropic session id (for replay/debugging)
 
-Soul-IDs (used for character consistency across panels) are stored in a local registry and may differ across runs. See the per-example READMEs for notes.
-
 ## Contributing a new example
 
-1. `mkdir examples/<workflow-name>/`
-2. Add `run.sh` (copy `examples/manga/run.sh` and tweak `NAME`)
-3. Add `prompt.md` — one or two sentences in user voice, telling Claude *what*, not *how*
-4. Add `README.md` — what the example produces, sample output snippet, which Runway features it exercises
-5. Update the **Examples index** table above
+Every example follows the same six-section README so the repo reads as a uniform showcase:
 
-The skill teaches Claude how to drive Runway. Your example just needs to ask, in plain language.
+1. **The prompt** — one or two sentences in user voice, telling Claude *what*, not *how*
+2. **Inputs** — env vars, no pre-existing assets
+3. **What Claude did** — the workflow Claude orchestrated
+4. **Output** — embedded PNGs/MP4s + a `result.json` snippet (real artifacts in `sample-output/`)
+5. **Run it** — the exact command
+6. **Cost & runtime** — observed numbers from a real run
+
+To add one:
+
+1. `cp -r examples/image examples/<workflow-name>/`
+2. Rewrite `prompt.md` for the new workflow
+3. Run `./examples/<workflow-name>/run.sh` once and commit a curated subset of the output into `sample-output/`
+4. Update the README following the six-section structure
+5. Add a row to the **Examples index** table above
+
+The skill teaches Claude how to drive Runway. Your example just needs to ask, in plain language, and capture the result.
 
 ## Related
 

@@ -48,7 +48,7 @@ claude -p "$PROMPT" \
 # Capture provenance + cost.
 jq -n \
   --arg claude_version "$(claude --version 2>/dev/null || echo unknown)" \
-  --arg runway_version "$(dnx Runway.Cli --version 2>/dev/null || echo unknown)" \
+  --arg runway_version "$(runway --version 2>/dev/null || echo unknown)" \
   --arg cost           "$(jq -r '.total_cost_usd // .cost_usd // "unknown"' "$OUT/transcript.json")" \
   --arg session        "$(jq -r '.session_id // "unknown"' "$OUT/transcript.json")" \
   --arg prompt_path    "$HERE/prompt.md" \
