@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# json-to-image: minimal user prompt -> a single Runway-generated PNG + result.json.
+# haircut: minimal user prompt -> generated portrait restyled with ai-hair-salon.
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-NAME="image"
-BUDGET=2
+NAME="haircut"
+BUDGET=3
 . "$HERE/../../scripts/_runner.sh"
