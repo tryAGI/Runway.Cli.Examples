@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# json-to-manga: minimal user prompt -> a 4-page manga (PNGs + result.json).
+# image: minimal user prompt -> a single Runway-generated PNG + result.json.
 # All the work is done by Claude using the runway-cli skill.
 
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
-NAME="manga"
+NAME="image"
 TS="$(date -u +%Y-%m-%dT%H-%M-%SZ)"
 OUT="$REPO/output/$NAME/$TS"
 mkdir -p "$OUT/assets"
@@ -24,12 +24,12 @@ if [ -z "${RUNWAY_API_KEY:-}" ]; then
 fi
 
 # The user-style prompt is in prompt.md. We append output paths so Claude knows
-# where to drop assets and the final JSON.
+# where to drop the asset and the final JSON.
 PROMPT="$(cat "$HERE/prompt.md")
-Write all generated images to: $OUT/assets
+Write the generated image to: $OUT/assets
 Write the final JSON to: $OUT/result.json"
 
-echo "==> Running json-to-manga"
+echo "==> Running image example"
 echo "    Prompt:    $HERE/prompt.md"
 echo "    Output:    $OUT"
 echo
@@ -37,7 +37,7 @@ echo
 cd "$REPO"
 claude -p "$PROMPT" \
   --model "${CLAUDE_MODEL:-sonnet}" \
-  --max-budget-usd "${CLAUDE_MAX_BUDGET_USD:-5}" \
+  --max-budget-usd "${CLAUDE_MAX_BUDGET_USD:-2}" \
   --add-dir "$OUT" \
   --permission-mode bypassPermissions \
   --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
@@ -53,7 +53,7 @@ jq -n \
   --arg session        "$(jq -r '.session_id // "unknown"' "$OUT/transcript.json")" \
   --arg prompt_path    "$HERE/prompt.md" \
   '{
-     example: "manga",
+     example: "image",
      claude:       $claude_version,
      runway_cli:   $runway_version,
      cost_usd:     $cost,

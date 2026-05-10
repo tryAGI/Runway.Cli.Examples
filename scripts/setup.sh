@@ -28,17 +28,12 @@ fi
 echo "==> Installing runway-cli skill from tryAGI/Runway via skills.sh"
 npx -y skills add tryAGI/Runway -a claude-code -y
 
-if [ ! -f .agents/skills/runway-cli/SKILL.md ]; then
-  echo "WARN: skill not found at .agents/skills/runway-cli/SKILL.md after install."
-  echo "      Check the output of 'npx skills add tryAGI/Runway -a claude-code -y' above."
-fi
-
-# Some Claude Code versions only auto-discover skills from .claude/skills/.
-# If that's the case, surface the same files there via a symlink.
-if [ -f .agents/skills/runway-cli/SKILL.md ] && [ ! -e .claude/skills/runway-cli ]; then
-  mkdir -p .claude/skills
-  ln -s ../../.agents/skills/runway-cli .claude/skills/runway-cli
-  echo "==> Linked .claude/skills/runway-cli -> ../../.agents/skills/runway-cli"
+# skills.sh with `-a claude-code` lands the skill at .claude/skills/runway-cli/,
+# which is exactly where headless `claude -p` auto-discovers it.
+if [ ! -f .claude/skills/runway-cli/SKILL.md ]; then
+  echo "ERR: skill not found at .claude/skills/runway-cli/SKILL.md after install."
+  echo "     Re-run 'npx skills add tryAGI/Runway -a claude-code -y' and inspect output."
+  exit 1
 fi
 
 echo "==> Checking credentials"

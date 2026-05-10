@@ -1,0 +1,1 @@
+Generate a single hero image: a minimalist coffee grinder on a brushed-steel kitchen counter, soft morning light, premium product-ad aesthetic. Save the PNG and emit a result.json with the title, description, prompt used, model, and image_path.

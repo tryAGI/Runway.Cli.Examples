@@ -50,8 +50,8 @@ Cost expectations: a single `manga` run typically costs a few cents in Anthropic
 
 | Workflow                       | Status     | Path                              |
 |--------------------------------|------------|-----------------------------------|
+| image (json-to-image)          | shipped    | `examples/image/`                 |
 | manga (json-to-manga)          | shipped    | `examples/manga/`                 |
-| image                          | planned    | `examples/image/`                 |
 | video                          | planned    | `examples/video/`                 |
 | image-to-video                 | planned    | `examples/image-to-video/`        |
 | short-video                    | planned    | `examples/short-video/`           |

@@ -1,0 +1,160 @@
+{
+  "title": "Claws & Shadows: The Pact of Featherstone",
+  "characters": [
+    {
+      "id": "katsuro",
+      "name": "Katsuro",
+      "role": "Samurai Cat",
+      "description": "A noble orange tabby cat samurai in black and gold do-maru lamellar armor. Fierce, disciplined, and bound by bushido. Wields a katana passed down through the Featherstone Dojo.",
+      "soul_id": "bdd1ae3a10f4",
+      "soul_id_variant": "soul-2",
+      "reference_images": [
+        "assets/runway-image-20260510-181400-805ce9df9ba74355ac44d4676ec33aa6.png",
+        "assets/runway-image-20260510-182045-4125533656404e85876c367ab75dd898.png",
+        "assets/runway-image-20260510-182046-ba9fdd1229c041c1983a10fe17f13caa.png",
+        "assets/runway-image-20260510-182048-3acbf9f126ec442ca8209a4bf46cf75d.png",
+        "assets/runway-image-20260510-182050-0b19d02324f44150b224e3107b429c9c.png"
+      ]
+    },
+    {
+      "id": "chu",
+      "name": "Chu",
+      "role": "Ninja Mouse",
+      "description": "A small but lightning-fast grey mouse ninja in dark shinobi shozoku. Cunning, agile, and loyal to the Shadow Guild. Expert in shuriken and silent movement.",
+      "soul_id": "45be6e8df301",
+      "soul_id_variant": "soul-2",
+      "reference_images": [
+        "assets/runway-image-20260510-181402-d2753dd72af84dd081390860e5e1f969.png",
+        "assets/runway-image-20260510-182052-41d2d7d84b4b4f06a6e0e168425772c6.png",
+        "assets/runway-image-20260510-182054-ee0ff7ad0004491cb5baa0eb75394f59.png",
+        "assets/runway-image-20260510-182056-3e70f201cd0640aea6c2ce58c72c771c.png",
+        "assets/runway-image-20260510-182057-aa5df9f692f749e6b056b9015e9abaa7.png"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "title": "The Encounter",
+      "panels": [
+        {
+          "id": "p1-1",
+          "image_path": "assets/runway-image-20260510-182537-e40ca144c4b74ee99818af27c852f5fe.png",
+          "characters_present": ["katsuro"],
+          "caption": "In the ancient land of Featherstone, where bamboo grew taller than temple roofs...",
+          "dialogue": []
+        },
+        {
+          "id": "p1-2",
+          "image_path": "assets/runway-image-20260510-182540-53c658d811434f84952b90e5c01d796a.png",
+          "characters_present": ["chu"],
+          "caption": "And in the shadows above, a pair of sharp eyes watched every step.",
+          "dialogue": []
+        },
+        {
+          "id": "p1-3",
+          "image_path": "assets/runway-image-20260510-182543-68e43f2aad8a431da75c52c059ceba40.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": null,
+          "dialogue": [
+            { "character": "katsuro", "text": "Show yourself, shadow-walker." },
+            { "character": "chu",     "text": "Bold words for a whisker-warrior." }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "The Clash",
+      "panels": [
+        {
+          "id": "p2-1",
+          "image_path": "assets/runway-image-20260510-182545-cdd0b7c7e74c4176873740173a3d2401.png",
+          "characters_present": ["katsuro"],
+          "caption": null,
+          "dialogue": [
+            { "character": "katsuro", "text": "This scroll belongs to the Featherstone Dojo!" }
+          ]
+        },
+        {
+          "id": "p2-2",
+          "image_path": "assets/runway-image-20260510-182548-850e16e3f59e4704aa6f57c39cdc7c83.png",
+          "characters_present": ["chu"],
+          "caption": null,
+          "dialogue": [
+            { "character": "chu", "text": "The Shadow Guild claims what careless warriors lose!" }
+          ]
+        },
+        {
+          "id": "p2-3",
+          "image_path": "assets/runway-image-20260510-182550-0a86d76af29e426fb9823556f7b7711e.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": "Neither would yield. The forest held its breath.",
+          "dialogue": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "The Common Foe",
+      "panels": [
+        {
+          "id": "p3-1",
+          "image_path": "assets/runway-image-20260510-182328-290f8d8e2a7d45deb78648b5ceaefb51.png",
+          "characters_present": [],
+          "caption": "Then the real enemy arrived.",
+          "dialogue": []
+        },
+        {
+          "id": "p3-2",
+          "image_path": "assets/runway-image-20260510-182553-46aba820a2ad4127beb8ba81bff3d49e.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": null,
+          "dialogue": [
+            { "character": "serpent", "text": "Both relics are mine now." }
+          ]
+        },
+        {
+          "id": "p3-3",
+          "image_path": "assets/runway-image-20260510-182555-315f5ebb6f9f4c6e955ce19c28c9978a.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": null,
+          "dialogue": [
+            { "character": "katsuro", "text": "Truce?" },
+            { "character": "chu",     "text": "...Truce." }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "The Bond",
+      "panels": [
+        {
+          "id": "p4-1",
+          "image_path": "assets/runway-image-20260510-182557-c9d8840b77db44339aab795334277126.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": "And just like that, two rivals became something else entirely.",
+          "dialogue": []
+        },
+        {
+          "id": "p4-2",
+          "image_path": "assets/runway-image-20260510-182600-ebc41d04a9844ad4be5d7b0dca4d5cad.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": null,
+          "dialogue": [
+            { "character": "katsuro", "text": "You fight well... for a mouse." },
+            { "character": "chu",     "text": "You swing fast... for a cat." }
+          ]
+        },
+        {
+          "id": "p4-3",
+          "image_path": "assets/runway-image-20260510-182602-0c9d09013d4b49e28f71ed1115d45b52.png",
+          "characters_present": ["katsuro", "chu"],
+          "caption": "Some friendships begin with crossed blades — and end with shared tea.",
+          "dialogue": []
+        }
+      ]
+    }
+  ]
+}

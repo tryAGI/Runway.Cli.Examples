@@ -6,17 +6,24 @@ A minimal user-style prompt produces a 4-page manga: a JSON description of the p
 
 [`./run.sh`](./run.sh) hands the prompt in [`prompt.md`](./prompt.md) to `claude -p` running headless. Claude — equipped with the [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill — drives `dnx Runway.Cli` to:
 
-1. Establish each character with the local `runway soul-id` registry (so faces/styles stay consistent across panels).
-2. Generate panel images via `runway image` referencing the character Soul-IDs.
-3. Assemble a single `result.json` describing the title, characters, pages, and panels.
+1. Generate a single character reference image (text-to-image).
+2. Write a storyboard JSON describing the pages and panels.
+3. Run the built-in `runway json-to-manga` workflow with the character + storyboard as inputs (renders all panels in one workflow call rather than per-panel).
+4. Assemble a single `result.json` describing the title, character, pages, and panels.
 
 ## The prompt
 
 The exact prompt (committed in [`prompt.md`](./prompt.md)):
 
-> Make a 4-page manga about a samurai cat befriending a rival ninja mouse. Establish each character with a Soul-ID first so they stay consistent across panels, then generate the panel images and assemble a single result.json describing the title, characters (with soul_id refs), pages, and panels (image path, dialogue, caption).
+> Make a short 3-page manga about a samurai cat befriending a rival ninja mouse. Use the `json-to-manga` workflow from the runway-cli skill so the panels render in a single workflow call rather than one image at a time. Generate one character reference image to feed the workflow, then write the storyboard JSON, run the workflow, and emit a single result.json describing the title, character, pages, and panels (image path, dialogue, caption).
 
 That's it. The skill teaches Claude *how*; the prompt only states *what*.
+
+## Expected runtime & cost
+
+Typical: **3–6 minutes**, dominated by the Runway workflow invocation. A run with no workflow guidance (raw text-to-image per panel) can balloon past 15 minutes and 20+ image-gen calls — see [`sample-output/`](./sample-output/) for an earlier "naive" run that produced 22 PNGs across 12 panels.
+
+Cost is captured per run in `output/manga/<ts>/meta.json`. Budget ceiling defaults to `$5` (`CLAUDE_MAX_BUDGET_USD=5`); override before invoking if you want a different cap.
 
 ## Run it
 
@@ -72,6 +79,7 @@ The prompt does not pin the schema — Claude shapes it sensibly. Expect somethi
 
 ## Notes
 
-- **Soul-ID drift.** The Soul-ID registry is local. A second run will create new IDs for new characters; reuse across runs is not automatic.
-- **Cost.** A typical run is on the order of a few cents in Claude tokens plus the underlying Runway image-generation calls. Check `meta.json` for the exact figure.
-- **Reproducibility.** Image generation is non-deterministic. `meta.json` records the `claude` and `Runway.Cli` versions plus the Anthropic session id for forensic replay.
+- **Workflow-first.** The prompt explicitly asks Claude to use the built-in `runway json-to-manga` workflow rather than rendering each panel via a separate `runway image` call. This keeps the run under ~6 minutes; without the nudge Claude tends to generate ~20 images individually.
+- **Sample output.** [`sample-output/result.json`](./sample-output/result.json) is a real result from an earlier run (4 pages × 3 panels, ~22 images, ~17 min). Yours will differ — character names, dialogue, and panel composition are non-deterministic.
+- **Cost.** Captured in `meta.json` per run. A workflow-based run is typically a few cents in Claude tokens plus the underlying Runway workflow charge.
+- **Reproducibility.** Generation is non-deterministic. `meta.json` records the `claude` and `Runway.Cli` versions plus the Anthropic session id for forensic replay.

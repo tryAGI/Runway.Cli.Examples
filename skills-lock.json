@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "runway-cli": {
+      "source": "tryAGI/Runway",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/runway-cli/SKILL.md",
+      "computedHash": "e703485fb9c5a221167265ec2e2530fbf05b167b38802eaad6365e4d016faed9"
+    }
+  }
+}
