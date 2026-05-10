@@ -1,0 +1,16 @@
+# Future MP4s (and other large media) go through Git LFS so the repo
+# stays cheap to clone. To enable on a fresh clone:
+#
+#   git lfs install
+#
+# Existing MP4s committed before this file was added remain as regular
+# git blobs (see the explicit -filter -diff -merge overrides below).
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+
+# Pre-LFS MP4s: stay as regular blobs. Keep this list short — when
+# adding a new video example, prefer letting the LFS pattern above
+# handle it from the start instead of adding more exceptions here.
+examples/short-video/sample-output/assets/short-video.mp4 -filter -diff -merge
+examples/wine-label/sample-output/assets/05-hero.mp4 -filter -diff -merge

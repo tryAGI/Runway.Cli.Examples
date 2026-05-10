@@ -107,21 +107,17 @@ Per-run output lands under `output/manga/<ISO-timestamp>/` (same shape as the im
 
 ## 6. Cost & runtime
 
-The naive showcase run (before the `--workflow` nudge in `prompt.md`):
-
-| Metric         | Value (observed)                                 |
-|----------------|--------------------------------------------------|
-| Wall time      | **~17 min** (killed after result.json was written) |
-| Runway calls   | 22 `runway image` calls                          |
-| Budget ceiling | `CLAUDE_MAX_BUDGET_USD=5`                        |
-
 With the current prompt (which steers Claude to `runway json-to-manga`):
 
-| Metric         | Value (expected)                                 |
-|----------------|--------------------------------------------------|
-| Wall time      | **3–6 min** (single workflow call vs per-panel)  |
-| Runway calls   | 1 character image + 1 workflow invocation        |
-| Budget ceiling | `CLAUDE_MAX_BUDGET_USD=5`                        |
+| Metric         | Value (observed)                                                              |
+|----------------|-------------------------------------------------------------------------------|
+| Wall time      | **~6 min** (1 character ref + 1 `json-to-manga` workflow producing 8 panels)  |
+| Claude cost    | **$0.58** (Sonnet 4.6)                                                        |
+| Runway credits | **163** (≈7 for the character image + ≈156 for the 8-panel workflow run)      |
+| Runway calls   | 1 × `runway image` + 1 × `json-to-manga` workflow                             |
+| Budget ceiling | `CLAUDE_MAX_BUDGET_USD=5`                                                     |
+
+The original "naive" showcase run captured in [`sample-output/result.json`](./sample-output/result.json) pre-dates the workflow nudge and pre-dates credit tracking — it cost ~22 separate `runway image` calls and took ~17 min before being killed for result inspection. The sample-output PNGs are still from that run because the visual storytelling is richer; switch to the workflow path in your own runs for cheaper/faster generation.
 
 Override per run: `CLAUDE_MAX_BUDGET_USD=10 ./examples/manga/run.sh`.
 

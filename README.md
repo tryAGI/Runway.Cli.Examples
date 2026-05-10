@@ -51,8 +51,8 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><a href="./examples/manga/"><code>manga</code></a></td>
       <td><em>"a 3-page manga about a samurai cat befriending a rival ninja mouse"</em></td>
       <td>6 PNGs + <code>result.json</code><br/>(2 char refs + 4 panels)</td>
-      <td><strong>~17 min</strong><br/>(3–6 min with workflow)</td>
-      <td><strong>~150</strong><br/>(22 × <code>runway image</code>, pre-tracking)</td>
+      <td><strong>~6 min</strong><br/>(with the workflow nudge)</td>
+      <td><strong>163</strong><br/>(1 char image + <code>json-to-manga</code> workflow producing 8 panels)</td>
     </tr>
     <tr>
       <td><a href="./examples/short-video/"><img src="./examples/short-video/sample-output/assets/shot-still.png" width="220" alt="Aerial sunrise still: motorcycle on misty mountain pass"></a></td>
@@ -75,7 +75,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
 
 Each example's own README has the same layout repeated in detail: **Prompt → Inputs → What Claude did → Output → Run it → Cost & runtime**.
 
-> **Cost transparency.** The `Runway credits` column is the **measured delta** of `runway organization get | jq .creditBalance` before and after each run — captured by [`scripts/_runner.sh`](./scripts/_runner.sh) into `meta.json` as `runway_credits.{before,after,used}`. Claude token spend is captured separately in each run's `meta.json` (`claude_cost_usd`) and noted in the per-example README, but kept out of this table to keep it scannable. The `manga` row's credits are approximate (run pre-dates credit tracking).
+> **Cost transparency.** The `Runway credits` column is the **measured delta** of `runway organization get | jq .creditBalance` before and after each run — captured by [`scripts/_runner.sh`](./scripts/_runner.sh) into `meta.json` as `runway_credits.{before,after,used}`. Claude token spend is captured separately in each run's `meta.json` (`claude_cost_usd`) and noted in the per-example README, but kept out of this table to keep it scannable.
 
 ---
 
@@ -108,7 +108,7 @@ This drops the skill at `.claude/skills/runway-cli/SKILL.md` (provided by the [s
 ./examples/haircut/run.sh         # ~3 min, $0.31 Claude,   95 Runway credits
 ./examples/virtual-try-on/run.sh  # ~3 min, $0.66 Claude,   91 Runway credits
 ./examples/short-video/run.sh     # ~6 min, $0.61 Claude,  200 Runway credits
-./examples/manga/run.sh           # ~3–6 min with the workflow nudge
+./examples/manga/run.sh           # ~6 min,  $0.58 Claude,  163 Runway credits (workflow-nudged)
 ./examples/wine-label/run.sh      # ~7 min, $0.65 Claude, 1241 Runway credits (video!)
 ```
 

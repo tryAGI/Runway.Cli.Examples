@@ -67,6 +67,7 @@ claude -p "$PROMPT" \
   --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
   --output-format json \
   --setting-sources project,local \
+  --append-system-prompt "You are running headless inside an example wrapper. Constraints: (a) write all generated assets only under the output directory provided in the user prompt; (b) write the final result.json only at the path provided in the user prompt; (c) do not run git, gh, or any repository-level commands; (d) do not edit anything outside the per-run output directory; (e) do not push, commit, or amend anything. The wrapper handles git, packaging, and provenance on its own." \
   > "$OUT/transcript.json"
 
 # Capture Runway credit balance AFTER the run, and compute delta.
