@@ -49,10 +49,10 @@ Per-run output lands under `output/virtual-try-on/<ISO-timestamp>/` (same shape 
 
 ## 6. Cost & runtime
 
-| Metric           | Value (observed)                                  |
-|------------------|---------------------------------------------------|
-| Wall time        | **~3 min** (two images + workflow)                |
-| Claude cost      | **~$0.55**                                        |
-| Runway credits   | _measured on next runner-assisted run_            |
-| Runway calls     | 2 × `runway image` + 1 × `virtual-try-on`         |
-| Budget ceiling   | `CLAUDE_MAX_BUDGET_USD=3`                         |
+| Metric           | Value (observed)                                                 |
+|------------------|------------------------------------------------------------------|
+| Wall time        | **~3 min**                                                       |
+| Claude cost      | **$0.66** (Sonnet 4.6)                                           |
+| Runway credits   | **91** (7 + 7 for the two image gens + 77 for the workflow's 4 variations) |
+| Runway calls     | 2 × `runway image` + 1 × `virtual-try-on`                        |
+| Budget ceiling   | `CLAUDE_MAX_BUDGET_USD=3`                                        |

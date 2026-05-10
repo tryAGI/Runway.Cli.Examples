@@ -39,12 +39,36 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><strong>95</strong><br/>(image + <code>ai-hair-salon</code> workflow)</td>
     </tr>
     <tr>
+      <td><a href="./examples/virtual-try-on/"><img src="./examples/virtual-try-on/sample-output/assets/03-tryon-1.png" width="220" alt="Same person now wearing a black leather jacket on a misty harbor"></a></td>
+      <td><a href="./examples/virtual-try-on/"><code>virtual-try-on</code></a></td>
+      <td><em>"generate a person and a leather jacket, then put the jacket on them on a foggy harbor at dawn"</em></td>
+      <td>1 person + 1 garment + 4 try-on variations + <code>result.json</code></td>
+      <td><strong>~3 min</strong></td>
+      <td><strong>91</strong><br/>(2 × <code>runway image</code> + <code>virtual-try-on</code>)</td>
+    </tr>
+    <tr>
       <td><a href="./examples/manga/"><img src="./examples/manga/sample-output/assets/03-p1-encounter.png" width="220" alt="Samurai cat vs ninja mouse, page 1 encounter"></a></td>
       <td><a href="./examples/manga/"><code>manga</code></a></td>
       <td><em>"a 3-page manga about a samurai cat befriending a rival ninja mouse"</em></td>
       <td>6 PNGs + <code>result.json</code><br/>(2 char refs + 4 panels)</td>
       <td><strong>~17 min</strong><br/>(3–6 min with workflow)</td>
       <td><strong>~150</strong><br/>(22 × <code>runway image</code>, pre-tracking)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/short-video/"><img src="./examples/short-video/sample-output/assets/shot-still.png" width="220" alt="Aerial sunrise still: motorcycle on misty mountain pass"></a></td>
+      <td><a href="./examples/short-video/"><code>short-video</code></a></td>
+      <td><em>"a short cinematic video of a vintage motorcycle through a foggy mountain pass at sunrise"</em></td>
+      <td>3-shot stitched MP4 (18 s) + plan.json + <code>result.json</code></td>
+      <td><strong>~6 min</strong></td>
+      <td><strong>200</strong><br/>(3 × <code>gemini-image3-pro</code> keyframes + 3 × <code>veo3.1-fast</code> shots)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/wine-label/"><img src="./examples/wine-label/sample-output/assets/04-composited-bottle.png" width="220" alt="Stellar Vines composited bottle hero shot"></a></td>
+      <td><a href="./examples/wine-label/"><code>wine-label</code></a></td>
+      <td><em>"design a fictional vineyard 'Stellar Vines' — generate bottle + two labels + hero MP4"</em></td>
+      <td>3 source PNGs + composited preview + hero MP4 + <code>result.json</code></td>
+      <td><strong>~7 min</strong></td>
+      <td><strong>1241</strong><br/>(3 × <code>runway image</code> + <code>wine-label-generator</code> with 3 video variations)</td>
     </tr>
   </tbody>
 </table>
@@ -80,9 +104,12 @@ This drops the skill at `.claude/skills/runway-cli/SKILL.md` (provided by the [s
 ## Run an example
 
 ```bash
-./examples/image/run.sh     # ~49 s, $0.15 Claude, 7 Runway credits
-./examples/haircut/run.sh   # ~3 min, $0.31 Claude, 95 Runway credits
-./examples/manga/run.sh     # ~3–6 min with the workflow nudge
+./examples/image/run.sh           # ~49 s,  $0.15 Claude,    7 Runway credits
+./examples/haircut/run.sh         # ~3 min, $0.31 Claude,   95 Runway credits
+./examples/virtual-try-on/run.sh  # ~3 min, $0.66 Claude,   91 Runway credits
+./examples/short-video/run.sh     # ~6 min, $0.61 Claude,  200 Runway credits
+./examples/manga/run.sh           # ~3–6 min with the workflow nudge
+./examples/wine-label/run.sh      # ~7 min, $0.65 Claude, 1241 Runway credits (video!)
 ```
 
 Output lands in `output/<example>/<ISO-timestamp>/`:
@@ -103,10 +130,12 @@ Each example also commits a `sample-output/` directory containing real artifacts
 |--------------------------------|------------|-----------------------------------|
 | image (json-to-image)          | shipped    | [`examples/image/`](./examples/image/) |
 | haircut (ai-hair-salon)        | shipped    | [`examples/haircut/`](./examples/haircut/) |
+| virtual-try-on                 | shipped    | [`examples/virtual-try-on/`](./examples/virtual-try-on/) |
 | manga (json-to-manga)          | shipped    | [`examples/manga/`](./examples/manga/) |
+| short-video                    | shipped    | [`examples/short-video/`](./examples/short-video/) |
+| wine-label (wine-label-generator) | shipped | [`examples/wine-label/`](./examples/wine-label/) |
 | video                          | planned    | `examples/video/`                 |
 | image-to-video                 | planned    | `examples/image-to-video/`        |
-| short-video                    | planned    | `examples/short-video/`           |
 | product-photoshoot             | planned    | `examples/product-photoshoot/`    |
 | marketplace-cards              | planned    | `examples/marketplace-cards/`     |
 | ad-video                       | planned    | `examples/ad-video/`              |

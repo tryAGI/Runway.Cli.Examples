@@ -1,0 +1,35 @@
+{
+  "scenario": "At sunrise, a lone 1950s cafe racer threads a foggy mountain pass, its headlight slicing through golden mist over pine-forested ridges in a moody, cinematic vignette.",
+  "style": "cinematic, coherent visual continuity, natural motion, high production value, no captions",
+  "planner": "Claude (auto)",
+  "models": {
+    "keyframes": "gemini-image3-pro",
+    "video": "veo3.1-fast"
+  },
+  "ratio": "1280:720",
+  "totalDurationSeconds": 18,
+  "shots": [
+    {
+      "index": 1,
+      "title": "Misty Pass at Dawn",
+      "durationSeconds": 6,
+      "beat": "Establish the vast foggy mountain pass at sunrise as the lone vintage motorcycle enters the frame.",
+      "keyframePath": "assets/shot-still.png"
+    },
+    {
+      "index": 2,
+      "title": "Headlight Through the Haze",
+      "durationSeconds": 6,
+      "beat": "The rider leans into a sweeping curve as the headlight cone pierces the rolling golden fog."
+    },
+    {
+      "index": 3,
+      "title": "Into the Golden Light",
+      "durationSeconds": 6,
+      "beat": "The cafe racer accelerates out of the bend and disappears into a radiant sunrise bloom on the ridge."
+    }
+  ],
+  "planPath": "short-video.plan.json",
+  "finalVideoPath": "assets/short-video.mp4",
+  "finalVideoSizeBytes": 15734270
+}

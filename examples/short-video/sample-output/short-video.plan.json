@@ -1,0 +1,34 @@
+{
+  "sourceText": "A vintage motorcycle riding through a foggy mountain pass at sunrise \u2014 cinematic wide shots, golden mist rolling over pine-forested ridges, the bike\u0027s headlight cutting through the haze, 1950s cafe racer, atmospheric and moody",
+  "scenario": "At sunrise, a lone 1950s cafe racer threads a foggy mountain pass, its headlight slicing through golden mist over pine-forested ridges in a moody, cinematic vignette.",
+  "style": "cinematic, coherent visual continuity, natural motion, high production value, no captions",
+  "model": "veo3.1_fast",
+  "ratio": "1280:720",
+  "shotDurationSeconds": 6,
+  "shots": [
+    {
+      "index": 1,
+      "count": 3,
+      "title": "Misty Pass at Dawn",
+      "beat": "Establish the vast foggy mountain pass at sunrise as the lone vintage motorcycle enters the frame.",
+      "keyframePrompt": "Sweeping wide aerial still of a winding mountain pass blanketed in golden sunrise mist, layered pine-forested ridges receding into hazy distance, a narrow ribbon of damp asphalt curving through the valley, a single 1950s black-and-chrome cafe racer motorcycle small in the frame with a warm amber headlight glow, low sun backlighting peaks, muted teal-and-amber cinematic palette, soft volumetric haze, painterly atmospheric depth, 2.39:1 anamorphic composition, leading line of the road guiding the eye, no text, no captions, no logos.",
+      "videoPrompt": "Slow cinematic forward-and-downward aerial drift over the ridges, gentle parallax as golden mist rolls between layers of pines, the cafe racer travels smoothly along the curving road from mid-right toward the bend, headlight beam softly cuts the haze, sun flares bloom subtly across the lens, steady graceful 24fps motion at golden hour, natural mist movement, anamorphic cinematic look, atmospheric and moody, no captions or text."
+    },
+    {
+      "index": 2,
+      "count": 3,
+      "title": "Headlight Through the Haze",
+      "beat": "The rider leans into a sweeping curve as the headlight cone pierces the rolling golden fog.",
+      "keyframePrompt": "Three-quarter tracking still of a polished black-and-chrome 1950s cafe racer leaning into a sweeping bend on damp mountain asphalt, leather-clad rider in vintage open-face helmet and goggles, warm amber headlight beam cutting visibly through layered golden fog, blurred pine trees along the roadside, soft sun flares filtering through mist, amber-and-teal cinematic palette matching the establishing shot, atmospheric depth with volumetric haze, consistent bike chrome, tank shape, and rider silhouette for continuity, 2.39:1 anamorphic framing, no text, no captions, no logos.",
+      "videoPrompt": "Smooth side-tracking dolly alongside the motorcycle at matched speed, slight camera lean into the curve, golden mist swirls past the lens, the headlight cone sweeps across the frame as the bike rounds the bend, rider\u0027s silhouette holds steady with subtle lean, continuous fluid motion at 24fps, soft anamorphic lens flares from the rising sun, consistent golden-hour grading, atmospheric and moody, natural motion, no captions or text."
+    },
+    {
+      "index": 3,
+      "count": 3,
+      "title": "Into the Golden Light",
+      "beat": "The cafe racer accelerates out of the bend and disappears into a radiant sunrise bloom on the ridge.",
+      "keyframePrompt": "Low rear-quarter still of the same 1950s black-and-chrome cafe racer accelerating along a ridge crest, taillight glowing warm red, faint exhaust haze trailing behind, sunrise bursting in radiant gold over distant peaks ahead, silhouetted pine trees lining the road, swirling mist parting around the wheels, warm amber light wrapping the chrome tank and exhaust, moody atmospheric palette consistent with prior shots, 2.39:1 anamorphic composition, painterly depth, no text, no captions, no logos.",
+      "videoPrompt": "Camera tracks behind the motorcycle then slowly pulls back and lifts slightly as the bike pulls away toward the golden light, mist trails curl behind the wheels, a soft sun flare blooms across the lens, smooth easing of the camera move with steady 24fps motion, continuous natural motion preserving the bike, rider, and lighting continuity from prior shots, cinematic anamorphic grading, atmospheric and moody, no captions or text."
+    }
+  ]
+}

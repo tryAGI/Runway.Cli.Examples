@@ -1,0 +1,30 @@
+{
+  "run": {
+    "workflow": "wine-label-generator",
+    "workflow_id": "d1d25dd0-e72a-489b-88d0-fe4613667344"
+  },
+  "vineyard": {
+    "name": "Stellar Vines",
+    "wine": "Reserve Cabernet Sauvignon 2021",
+    "theme": "Celestial constellations — Orion, Virgo, Cassiopeia",
+    "tasting_notes": "Rich aromas of dark cherry, cedar, and subtle violet with a long, velvety finish.",
+    "volume": "750 ml",
+    "alcohol": "14% vol"
+  },
+  "source_images": {
+    "bottle":      { "file": "assets/01-bottle.png",      "model": "gemini-2.5-flash" },
+    "label_front": { "file": "assets/02-label-front.png", "model": "gemini-2.5-flash" },
+    "label_back":  { "file": "assets/03-label-back.png",  "model": "gemini-2.5-flash" }
+  },
+  "video_prompt": "shattered bottle suspended in mid-air, slow rotation, dramatic lighting, cinematic slow motion, glass fragments catching light",
+  "outputs": {
+    "composited_bottle_preview": "assets/04-composited-bottle.png",
+    "hero_mp4": "assets/05-hero.mp4"
+  },
+  "runway_calls": [
+    { "step": 1, "command": "runway image", "purpose": "Generate bottle reference" },
+    { "step": 2, "command": "runway image", "purpose": "Generate front label artwork" },
+    { "step": 3, "command": "runway image", "purpose": "Generate back label artwork" },
+    { "step": 4, "command": "runway wine-label-generator", "purpose": "Composite labels onto bottle and render hero video" }
+  ]
+}
