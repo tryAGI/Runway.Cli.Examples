@@ -1,0 +1,50 @@
+{
+  "run": {
+    "timestamp": "2026-05-10T22:50:23Z",
+    "workflow": "virtual-try-on",
+    "workflowId": "f173a1e1-4932-4313-b879-d8564956d964",
+    "invocationId": "97673dc8-4303-4512-9a28-034ea2c3f9a5",
+    "model": "gemini-2.5-flash",
+    "scene": "the woman is wearing the leather jacket, standing on a misty harbor dock at dawn, soft fog rolling off the water, cinematic morning light, shallow depth of field"
+  },
+  "inputs": {
+    "person": {
+      "path": "assets/01-person.png",
+      "taskId": "05f60a57-1351-40a1-9683-ad266c126708",
+      "prompt": "full-body portrait of a young woman standing against a plain white wall, wearing a simple white t-shirt and dark straight-leg jeans, neutral relaxed pose, soft studio lighting",
+      "model": "gemini-2.5-flash",
+      "ratio": "1024:1024",
+      "role": "person — source portrait for virtual try-on"
+    },
+    "garment": {
+      "path": "assets/02-garment.png",
+      "taskId": "cff6514c-3766-46dc-af3a-c3a1c320477e",
+      "prompt": "professional product photography of a stylish black leather biker jacket laid flat on a clean neutral light-gray background, sharp detail, soft even studio lighting, no model, isolated product shot",
+      "model": "gemini-2.5-flash",
+      "ratio": "1024:1024",
+      "role": "garment — leather jacket product shot composited onto person"
+    }
+  },
+  "outputs": [
+    {
+      "path": "assets/03-tryon-1.png",
+      "nodeOutputId": "6a8f5054-aa98-4cd9-867c-e17fc63e55f8",
+      "role": "try-on result — variation 1"
+    },
+    {
+      "path": "assets/04-tryon-2.png",
+      "nodeOutputId": "b40fd02f-e792-4144-bb82-0a63de8366e3",
+      "role": "try-on result — variation 2"
+    },
+    {
+      "path": "assets/05-tryon-3.png",
+      "nodeOutputId": "d5aa76cb-f206-40c3-b26d-d54120bfeadb",
+      "role": "try-on result — variation 3"
+    },
+    {
+      "path": "assets/06-tryon-4.png",
+      "nodeOutputId": "dc275cf0-f32a-46b0-8837-cfb5f9f38eb8",
+      "role": "try-on result — variation 4"
+    }
+  ]
+}

@@ -18,7 +18,6 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <th>Prompt</th>
       <th>Output</th>
       <th>Time</th>
-      <th>Claude $</th>
       <th>Runway credits</th>
     </tr>
   </thead>
@@ -29,7 +28,6 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><em>"a minimalist coffee grinder on brushed steel, soft morning light"</em></td>
       <td>1 PNG + <code>result.json</code></td>
       <td><strong>~49 s</strong></td>
-      <td><strong>$0.15</strong></td>
       <td><strong>7</strong><br/>(1 × <code>runway image</code>)</td>
     </tr>
     <tr>
@@ -38,7 +36,6 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><em>"give someone a virtual haircut: generate a portrait, then restyle with ai-hair-salon"</em></td>
       <td>1 portrait + 4 restyled variations + <code>result.json</code></td>
       <td><strong>~3 min</strong></td>
-      <td><strong>$0.31</strong></td>
       <td><strong>95</strong><br/>(image + <code>ai-hair-salon</code> workflow)</td>
     </tr>
     <tr>
@@ -47,7 +44,6 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><em>"a 3-page manga about a samurai cat befriending a rival ninja mouse"</em></td>
       <td>6 PNGs + <code>result.json</code><br/>(2 char refs + 4 panels)</td>
       <td><strong>~17 min</strong><br/>(3–6 min with workflow)</td>
-      <td><strong>~$1</strong></td>
       <td><strong>~150</strong><br/>(22 × <code>runway image</code>, pre-tracking)</td>
     </tr>
   </tbody>
@@ -55,7 +51,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
 
 Each example's own README has the same layout repeated in detail: **Prompt → Inputs → What Claude did → Output → Run it → Cost & runtime**.
 
-> **Cost transparency.** The `Claude $` column is the Anthropic token spend captured in [`meta.json`](./examples/image/sample-output/) after each run. The `Runway credits` column is the **measured delta** of `runway organization get | jq .creditBalance` before and after the run — written to `meta.json` as `runway_credits.{before,after,used}` by [`scripts/_runner.sh`](./scripts/_runner.sh). The `manga` row's credits are approximate (run pre-dates credit tracking). Check `runway organization get` to see your own balance.
+> **Cost transparency.** The `Runway credits` column is the **measured delta** of `runway organization get | jq .creditBalance` before and after each run — captured by [`scripts/_runner.sh`](./scripts/_runner.sh) into `meta.json` as `runway_credits.{before,after,used}`. Claude token spend is captured separately in each run's `meta.json` (`claude_cost_usd`) and noted in the per-example README, but kept out of this table to keep it scannable. The `manga` row's credits are approximate (run pre-dates credit tracking).
 
 ---
 
