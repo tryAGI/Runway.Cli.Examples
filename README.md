@@ -18,8 +18,8 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <th>Prompt</th>
       <th>Output</th>
       <th>Time</th>
-      <th>Claude cost</th>
-      <th>Runway calls</th>
+      <th>Claude $</th>
+      <th>Runway credits</th>
     </tr>
   </thead>
   <tbody>
@@ -27,26 +27,35 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><a href="./examples/image/"><img src="./examples/image/sample-output/assets/coffee-grinder.png" width="220" alt="Minimalist coffee grinder"></a></td>
       <td><a href="./examples/image/"><code>image</code></a></td>
       <td><em>"a minimalist coffee grinder on brushed steel, soft morning light"</em></td>
-      <td>1 PNG + <code>result.json</code><br/>(title, description, prompt, model, image_path)</td>
+      <td>1 PNG + <code>result.json</code></td>
       <td><strong>~49 s</strong></td>
-      <td><strong>$0.14</strong><br/>(Sonnet 4.6)</td>
-      <td>1 × <code>runway image</code></td>
+      <td><strong>$0.15</strong></td>
+      <td><strong>7</strong><br/>(1 × <code>runway image</code>)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/haircut/"><img src="./examples/haircut/sample-output/assets/02-after-bob-blonde.png" width="220" alt="Restyled portrait: bob with blonde highlights against sunset"></a></td>
+      <td><a href="./examples/haircut/"><code>haircut</code></a></td>
+      <td><em>"give someone a virtual haircut: generate a portrait, then restyle with ai-hair-salon"</em></td>
+      <td>1 portrait + 4 restyled variations + <code>result.json</code></td>
+      <td><strong>~3 min</strong></td>
+      <td><strong>$0.31</strong></td>
+      <td><strong>95</strong><br/>(image + <code>ai-hair-salon</code> workflow)</td>
     </tr>
     <tr>
       <td><a href="./examples/manga/"><img src="./examples/manga/sample-output/assets/03-p1-encounter.png" width="220" alt="Samurai cat vs ninja mouse, page 1 encounter"></a></td>
       <td><a href="./examples/manga/"><code>manga</code></a></td>
       <td><em>"a 3-page manga about a samurai cat befriending a rival ninja mouse"</em></td>
-      <td>6 PNGs + <code>result.json</code><br/>(2 character refs + 4 panels; 22 PNGs in the naive run)</td>
-      <td><strong>~17 min</strong><br/>(3–6 min with the workflow nudge)</td>
-      <td><strong>~$1</strong><br/>(Sonnet 4.6, ceiling $5)</td>
-      <td>22 × <code>runway image</code><br/>(or 1 × <code>json-to-manga</code> workflow)</td>
+      <td>6 PNGs + <code>result.json</code><br/>(2 char refs + 4 panels)</td>
+      <td><strong>~17 min</strong><br/>(3–6 min with workflow)</td>
+      <td><strong>~$1</strong></td>
+      <td><strong>~150</strong><br/>(22 × <code>runway image</code>, pre-tracking)</td>
     </tr>
   </tbody>
 </table>
 
 Each example's own README has the same layout repeated in detail: **Prompt → Inputs → What Claude did → Output → Run it → Cost & runtime**.
 
-> **Note on costs.** The "Claude cost" column is the Anthropic token spend captured in `meta.json` after each run. **Runway charges per generation are separate** and billed against your Runway account — check `runway organization get` for your current balance. The "Runway calls" column shows how many billable Runway operations Claude triggered.
+> **Cost transparency.** The `Claude $` column is the Anthropic token spend captured in [`meta.json`](./examples/image/sample-output/) after each run. The `Runway credits` column is the **measured delta** of `runway organization get | jq .creditBalance` before and after the run — written to `meta.json` as `runway_credits.{before,after,used}` by [`scripts/_runner.sh`](./scripts/_runner.sh). The `manga` row's credits are approximate (run pre-dates credit tracking). Check `runway organization get` to see your own balance.
 
 ---
 
@@ -75,7 +84,8 @@ This drops the skill at `.claude/skills/runway-cli/SKILL.md` (provided by the [s
 ## Run an example
 
 ```bash
-./examples/image/run.sh     # ~49 s, ~$0.14
+./examples/image/run.sh     # ~49 s, $0.15 Claude, 7 Runway credits
+./examples/haircut/run.sh   # ~3 min, $0.31 Claude, 95 Runway credits
 ./examples/manga/run.sh     # ~3–6 min with the workflow nudge
 ```
 
@@ -96,6 +106,7 @@ Each example also commits a `sample-output/` directory containing real artifacts
 | Workflow                       | Status     | Path                              |
 |--------------------------------|------------|-----------------------------------|
 | image (json-to-image)          | shipped    | [`examples/image/`](./examples/image/) |
+| haircut (ai-hair-salon)        | shipped    | [`examples/haircut/`](./examples/haircut/) |
 | manga (json-to-manga)          | shipped    | [`examples/manga/`](./examples/manga/) |
 | video                          | planned    | `examples/video/`                 |
 | image-to-video                 | planned    | `examples/image-to-video/`        |

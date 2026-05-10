@@ -1,0 +1,24 @@
+{
+  "before": {
+    "path": "assets/01-before.png",
+    "prompt": "studio portrait of a young woman with long flowing dark hair, elegant features, soft natural lighting, neutral background, professional photography, high detail",
+    "model": "gemini-2.5-flash",
+    "ratio": "1024:1024"
+  },
+  "after": {
+    "paths": [
+      "assets/02-after-bob-blonde.png",
+      "assets/03-after-platinum-waves.png",
+      "assets/04-after-pixie.png"
+    ],
+    "hairstyle": "shoulder-length wavy bob with subtle blonde highlights, soft waves framing the face, warm caramel and blonde tones",
+    "background": "soft sunset gradient backdrop with warm peach and golden hues"
+  },
+  "workflow": {
+    "name": "ai-hair-salon",
+    "id": "c4674e34-b2cc-47fc-8684-a3c5aed54848",
+    "invocation_id": "210f3ac7-3318-440e-b77f-1ae907dfde70",
+    "status": "SUCCEEDED",
+    "variations": 4
+  }
+}
