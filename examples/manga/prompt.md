@@ -1,0 +1,1 @@
+Make a 4-page manga about a samurai cat befriending a rival ninja mouse. Establish each character with a Soul-ID first so they stay consistent across panels, then generate the panel images and assemble a single result.json describing the title, characters (with soul_id refs), pages, and panels (image path, dialogue, caption).

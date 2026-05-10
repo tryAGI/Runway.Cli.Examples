@@ -1,0 +1,19 @@
+# Per-run results
+output/
+
+# Local secrets
+.env
+.env.local
+
+# Skill is installed by scripts/setup.sh, not committed
+.agents/skills/runway-cli/
+.claude/skills/runway-cli
+
+# Editor / OS
+.DS_Store
+.idea/
+.vs/
+*.swp
+
+# Node (in case skills.sh leaves any artifacts)
+node_modules/
