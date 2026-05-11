@@ -48,11 +48,10 @@ The `wine-label-generator` workflow composites the labels onto the bottle and re
 
 ### Final hero MP4
 
-<video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/wine-label/sample-output/assets/05-hero.mp4" controls muted playsinline width="400"></video>
+![Hero animation preview](./sample-output/assets/06-hero-preview.gif)
 
-720×1280 portrait, 8 s. The workflow actually returned three MP4 variations (portrait 720p, landscape 1080p, portrait 1080p); the smallest is checked in to keep the repo size manageable.
-
-Download: [`sample-output/assets/05-hero.mp4`](./sample-output/assets/05-hero.mp4).
+Full-quality MP4 (720×1280 portrait, 8 s):
+[`sample-output/assets/05-hero.mp4`](./sample-output/assets/05-hero.mp4). The workflow actually returned three MP4 variations (portrait 720p, landscape 1080p, portrait 1080p); the smallest is checked in to keep the repo size manageable.
 
 ### The `result.json` Claude wrote
 

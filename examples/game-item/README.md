@@ -32,7 +32,7 @@ The workflow returns one animated icon per rarity tier (common / uncommon / rare
 
 **Legendary tier (animated, green-screen for game compositing):**
 
-<video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/game-item/sample-output/assets/animated-icon-legendary.mp4" controls muted playsinline width="400"></video>
+![Legendary animated icon](./sample-output/assets/animated-icon-legendary.gif)
 
 All four tier presentations (extracted as stills from the workflow's MP4 outputs). The background colour signals rarity in the standard RPG order: orange (common) → blue (uncommon) → purple (rare) → green-screen (legendary).
 

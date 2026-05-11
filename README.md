@@ -23,7 +23,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
   </thead>
   <tbody>
     <tr>
-      <td><a href="./examples/audio/"><audio src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/audio/sample-output/assets/voice.mp3" controls></audio></a></td>
+      <td align="center" style="width:220px"><a href="./examples/audio/">🔊<br/><em>audio-only<br/>(no visual)</em></a></td>
       <td><a href="./examples/audio/"><code>audio</code></a></td>
       <td><em>"a launch-VO line plus a matching short SFX clip"</em></td>
       <td>1 voice MP3 + 1 SFX MP3 + <code>result.json</code></td>
@@ -87,7 +87,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><strong>21</strong><br/>(1 × <code>storyboard-creator</code>)</td>
     </tr>
     <tr>
-      <td><video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/image-to-video/sample-output/assets/animation.mp4" autoplay loop muted playsinline width="220"></video></td>
+      <td><a href="./examples/image-to-video/"><img src="./examples/image-to-video/sample-output/assets/animation-preview.gif" width="220" alt="Peach animation: slow push-in with condensation droplets"></a></td>
       <td><a href="./examples/image-to-video/"><code>image-to-video</code></a></td>
       <td><em>"a ripe peach on marble, soft window light — animate it with a slow push-in"</em></td>
       <td>1 still PNG + 1 animation MP4 + <code>result.json</code></td>
@@ -95,7 +95,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><strong>55</strong><br/>(image + <code>gen4-turbo</code> animation)</td>
     </tr>
     <tr>
-      <td><video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/short-video/sample-output/assets/short-video.mp4" autoplay loop muted playsinline width="220"></video></td>
+      <td><a href="./examples/short-video/"><img src="./examples/short-video/sample-output/assets/short-video-preview.gif" width="220" alt="Aerial sunrise: motorcycle on misty mountain pass"></a></td>
       <td><a href="./examples/short-video/"><code>short-video</code></a></td>
       <td><em>"a short cinematic video of a vintage motorcycle through a foggy mountain pass at sunrise"</em></td>
       <td>3-shot stitched MP4 (18 s) + plan.json + <code>result.json</code></td>
@@ -103,7 +103,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><strong>200</strong><br/>(3 × <code>gemini-image3-pro</code> keyframes + 3 × <code>veo3.1-fast</code> shots)</td>
     </tr>
     <tr>
-      <td><video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/game-item/sample-output/assets/animated-icon-legendary.mp4" autoplay loop muted playsinline width="220"></video></td>
+      <td><a href="./examples/game-item/"><img src="./examples/game-item/sample-output/assets/animated-icon-legendary.gif" width="220" alt="Legendary sapphire rune-staff animated on green-screen"></a></td>
       <td><a href="./examples/game-item/"><code>game-item</code></a></td>
       <td><em>"design a jeweled sapphire rune-staff with 4 rarity variants and an animated icon"</em></td>
       <td>4 rarity-tier animated MP4s + <code>result.json</code></td>
@@ -111,7 +111,7 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><strong>675</strong><br/>(<code>game-item-generator</code> renders 4 icons + 4 animated icons on <code>veo3.1</code>)</td>
     </tr>
     <tr>
-      <td><video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/wine-label/sample-output/assets/05-hero.mp4" autoplay loop muted playsinline width="220"></video></td>
+      <td><a href="./examples/wine-label/"><img src="./examples/wine-label/sample-output/assets/06-hero-preview.gif" width="220" alt="Stellar Vines hero animation: shattered bottle suspended in mid-air"></a></td>
       <td><a href="./examples/wine-label/"><code>wine-label</code></a></td>
       <td><em>"design a fictional vineyard 'Stellar Vines' — generate bottle + two labels + hero MP4"</em></td>
       <td>3 source PNGs + composited preview + hero MP4 + <code>result.json</code></td>
