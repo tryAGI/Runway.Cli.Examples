@@ -14,6 +14,12 @@ What we hand to Claude — verbatim, the way a user would type it ([`prompt.md`]
 - The [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill installed at `.claude/skills/runway-cli/`
 - **No pre-existing assets** — Claude generates the source logo first.
 
+> **If you already have a logo (or product image)**, the prompt collapses to a single line. With `./logo.png` on disk a real user would just type:
+>
+> > Use `mockup-generator` on `./logo.png` with a subway-billboard brief at evening commute, glossy paper, urban setting.
+>
+> The prompt this example commits is longer only because it has to generate the source logo from scratch.
+
 ## 3. What Claude did
 
 Guided only by the skill, Claude:

@@ -14,6 +14,12 @@ What we hand to Claude — verbatim, the way a user would type it ([`prompt.md`]
 - The [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill installed at `.claude/skills/runway-cli/` (done by `./scripts/setup.sh`)
 - **No pre-existing assets** — Claude generates the person and the garment first.
 
+> **If you already have person + garment images**, the prompt collapses to a single line. With `./model.jpg` and `./jacket.png` on disk a real user would just type:
+>
+> > Put the jacket from `./jacket.png` onto the person in `./model.jpg` using `virtual-try-on` against a foggy harbor at dawn.
+>
+> The prompt this example commits is longer only because it has to generate both source images from scratch.
+
 ## 3. What Claude did
 
 Guided only by the skill, Claude:
@@ -29,11 +35,21 @@ Three Runway calls total: two `runway image` + one `virtual-try-on` workflow.
 
 ### Inputs and result
 
-|  Person                                         |  Garment                                          |  Try-on — var 1                                    |  Try-on — var 2                                    |
-|-------------------------------------------------|---------------------------------------------------|----------------------------------------------------|----------------------------------------------------|
-| ![Person](./sample-output/assets/01-person.png) | ![Garment](./sample-output/assets/02-garment.png) | ![Try-on 1](./sample-output/assets/03-tryon-1.png) | ![Try-on 2](./sample-output/assets/04-tryon-2.png) |
+**Source images** (both generated from scratch by `runway image`):
 
-The workflow returned **4 variations** (`03-tryon-1.png` → `06-tryon-4.png`); two are shown above.
+|  Person                                         |  Garment                                          |
+|-------------------------------------------------|---------------------------------------------------|
+| ![Person](./sample-output/assets/01-person.png) | ![Garment](./sample-output/assets/02-garment.png) |
+
+**All four try-on variations** returned by the workflow:
+
+|  Variation 1                                       |  Variation 2                                       |
+|----------------------------------------------------|----------------------------------------------------|
+| ![Try-on 1](./sample-output/assets/03-tryon-1.png) | ![Try-on 2](./sample-output/assets/04-tryon-2.png) |
+|  Variation 3                                       |  Variation 4                                       |
+| ![Try-on 3](./sample-output/assets/05-tryon-3.png) | ![Try-on 4](./sample-output/assets/06-tryon-4.png) |
+
+Same person, same jacket, same misty harbor scene — but different framing, lighting, and pose per variation. The workflow returns four interpretations so you can pick the one that best fits your downstream use.
 
 ### The `result.json` Claude wrote
 

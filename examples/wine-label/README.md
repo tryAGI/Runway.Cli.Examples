@@ -14,6 +14,12 @@ What we hand to Claude — verbatim, the way a user would type it ([`prompt.md`]
 - The [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill installed at `.claude/skills/runway-cli/` (done by `./scripts/setup.sh`)
 - **No pre-existing assets** — Claude generates the bottle and both labels first.
 
+> **If you already have a bottle reference and two label artworks**, the prompt collapses to a single line. With `./bottle.jpg`, `./label-front.png`, `./label-back.png` on disk a real user would just type:
+>
+> > Use `wine-label-generator` with `./bottle.jpg`, `./label-front.png`, `./label-back.png` and a "shattered bottle suspended in mid-air, slow rotation" video prompt.
+>
+> The prompt this example commits is longer only because it has to generate the bottle and both labels from scratch.
+
 ## 3. What Claude did
 
 Guided only by the skill, Claude:

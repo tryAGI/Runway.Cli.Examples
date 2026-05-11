@@ -14,6 +14,12 @@ What we hand to Claude — verbatim, the way a user would type it ([`prompt.md`]
 - The [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill installed at `.claude/skills/runway-cli/` (done by `./scripts/setup.sh`)
 - **No pre-existing assets** — characters, storyboard, and panels are all synthesized from scratch.
 
+> **If you already have a character reference image and a storyboard JSON**, the prompt collapses to a single line. With `./hero.png` and `./pages.json` on disk a real user would just type:
+>
+> > Use `json-to-manga` with `./hero.png` as the character and `./pages.json` as the storyboard.
+>
+> The prompt this example commits is longer only because it has to invent the cast and the page structure from a single sentence.
+
 ## 3. What Claude did
 
 Guided only by the skill, Claude (in the showcased run):

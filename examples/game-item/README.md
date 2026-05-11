@@ -34,11 +34,13 @@ The workflow returns one animated icon per rarity tier (common / uncommon / rare
 
 ![Legendary animated icon](./sample-output/assets/animated-icon-legendary.gif)
 
-Static stills of the four tier presentations (extracted from the workflow's MP4 outputs):
+All four tier presentations (extracted as stills from the workflow's MP4 outputs). The background colour signals rarity in the standard RPG order: orange (common) → blue (uncommon) → purple (rare) → green-screen (legendary).
 
-|  Common (with sparkle/fire effects)                                  |  Legendary (green-screen for compositing)                            |
-|----------------------------------------------------------------------|----------------------------------------------------------------------|
-| ![Common preview](./sample-output/assets/preview-common.jpg)         | ![Legendary preview](./sample-output/assets/preview-legendary.jpg)   |
+|  Common — sparkle / fire effects                                | Uncommon — clear blue background                                |
+|-----------------------------------------------------------------|-----------------------------------------------------------------|
+| ![Common preview](./sample-output/assets/preview-common.jpg)    | ![Uncommon preview](./sample-output/assets/preview-uncommon.jpg) |
+| **Rare — purple glow halo**                                     | **Legendary — green-screen for compositing**                    |
+| ![Rare preview](./sample-output/assets/preview-rare.jpg)        | ![Legendary preview](./sample-output/assets/preview-legendary.jpg) |
 
 Full-quality MP4s (one per tier):
 - [`animated-icon-common.mp4`](./sample-output/assets/animated-icon-common.mp4)

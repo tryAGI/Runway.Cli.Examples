@@ -14,6 +14,12 @@ What we hand to Claude — verbatim, the way a user would type it ([`prompt.md`]
 - The [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill installed at `.claude/skills/runway-cli/`
 - **No pre-existing assets** — Claude generates the still first.
 
+> **If you already have a still image**, you can skip the generation step and the prompt becomes a single line. With `./peach.png` on disk a real user would just type:
+>
+> > Animate `./peach.png` with `image-to-video` — slow push-in, condensation droplets glistening.
+>
+> The prompt this example commits is longer only because it has to generate the source image from scratch.
+
 ## 3. What Claude did
 
 Guided only by the skill, Claude:

@@ -14,6 +14,12 @@ What we hand to Claude — verbatim, the way a user would type it ([`prompt.md`]
 - The [`runway-cli`](https://github.com/tryAGI/Runway#use-as-an-agent-skill) skill installed at `.claude/skills/runway-cli/` (done by `./scripts/setup.sh`)
 - **No pre-existing assets** — Claude generates the input portrait first.
 
+> **If you already have a portrait**, the prompt collapses to a single line. With `./me.jpg` on disk a real user would just type:
+>
+> > Use `ai-hair-salon` on `./me.jpg` to give a shoulder-length wavy bob with subtle blonde highlights on a soft sunset gradient background.
+>
+> The prompt this example commits is longer only because it has to generate the source portrait from scratch.
+
 ## 3. What Claude did
 
 Guided only by the skill, Claude:
@@ -33,13 +39,15 @@ Two Runway calls total: one `runway image` + one `ai-hair-salon` workflow.
 |-------------------------------------------------------------|--------------------------------------------------------------------------|
 | ![Portrait before](./sample-output/assets/01-before.png)    | ![Bob with blonde highlights](./sample-output/assets/02-after-bob-blonde.png) |
 
-### Other variations returned by the workflow
+### All four variations returned by the workflow
 
-|  Platinum waves                                                                          |  Pixie cut                                                              |
-|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| ![Platinum waves](./sample-output/assets/03-after-platinum-waves.png)                    | ![Pixie cut](./sample-output/assets/04-after-pixie.png)                  |
+|  Platinum waves (variant 2)                                                       |  Pixie cut (variant 3)                                                  |
+|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| ![Platinum waves](./sample-output/assets/03-after-platinum-waves.png)             | ![Pixie cut](./sample-output/assets/04-after-pixie.png)                  |
+|  **Long straight dark — background-only restyle (variant 4)**                     |                                                                          |
+| ![Long straight dark on sunset](./sample-output/assets/05-after-straight-dark.png) |                                                                          |
 
-Note the consistency: same face, same wardrobe, same lighting in the after shots. The workflow restyles only the hair (and the requested background).
+Note the consistency: same face, same wardrobe, same lighting across every after shot. The workflow restyles only the hair (and the requested background) — even variant 4, which keeps the original hairstyle, swaps the background while preserving the subject.
 
 ### The `result.json` Claude wrote
 
