@@ -30,11 +30,17 @@ One CLI call (`game-item-generator`) that fans out into N image renders + 1 vide
 
 The workflow returns one animated icon per rarity tier (common / uncommon / rare / legendary). All four share the underlying item design (the oak-and-brass rune-staff with sapphire core that the prompt described); they differ in background, lighting, and animated effects.
 
-|  Common (with sparkle/fire effects)                                  |  Legendary (green-screen for game compositing)                       |
+**Legendary tier (animated, green-screen for game compositing):**
+
+![Legendary animated icon](./sample-output/assets/animated-icon-legendary.gif)
+
+Static stills of the four tier presentations (extracted from the workflow's MP4 outputs):
+
+|  Common (with sparkle/fire effects)                                  |  Legendary (green-screen for compositing)                            |
 |----------------------------------------------------------------------|----------------------------------------------------------------------|
 | ![Common preview](./sample-output/assets/preview-common.jpg)         | ![Legendary preview](./sample-output/assets/preview-legendary.jpg)   |
 
-MP4 files (one per tier):
+Full-quality MP4s (one per tier):
 - [`animated-icon-common.mp4`](./sample-output/assets/animated-icon-common.mp4)
 - [`animated-icon-uncommon.mp4`](./sample-output/assets/animated-icon-uncommon.mp4)
 - [`animated-icon-rare.mp4`](./sample-output/assets/animated-icon-rare.mp4)

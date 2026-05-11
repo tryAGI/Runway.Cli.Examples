@@ -28,9 +28,11 @@ Two Runway calls: one image, one image-to-video.
 
 ### Still and final animation
 
-|  Hero still (generated)                                |  Final MP4 (animated)                                      |
-|--------------------------------------------------------|------------------------------------------------------------|
-| ![Hero still](./sample-output/assets/still.png)        | [▶ animation.mp4](./sample-output/assets/animation.mp4)    |
+|  Hero still (generated)                                |  Final animation (gen4-turbo)                                       |
+|--------------------------------------------------------|---------------------------------------------------------------------|
+| ![Hero still](./sample-output/assets/still.png)        | ![Animation preview](./sample-output/assets/animation-preview.gif)  |
+
+Full-quality MP4: [`sample-output/assets/animation.mp4`](./sample-output/assets/animation.mp4).
 
 ### The `result.json` Claude wrote
 
