@@ -1,0 +1,8 @@
+{
+  "still_prompt": "a single ripe peach resting on a white marble countertop, soft diffused window light from the left, tiny condensation droplets on the velvety skin, shallow depth of field, food-magazine editorial aesthetic, muted warm tones, clean background",
+  "motion_prompt": "slow push-in, condensation droplets glistening, gentle ambient steam",
+  "image_model": "gemini-2.5-flash",
+  "video_model": "gen4-turbo",
+  "still_path": "assets/still.png",
+  "video_path": "assets/animation.mp4"
+}

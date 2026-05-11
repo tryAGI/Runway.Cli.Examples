@@ -1,0 +1,1 @@
+Use the runway `storyboard-creator` workflow to turn a one-line idea — "a quiet detective scene in a rainy alley" — into a single expanded storyboard PNG with multiple panels laid out on one page. Save the storyboard image and emit a result.json describing the idea, the model, and the output path.

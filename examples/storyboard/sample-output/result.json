@@ -1,0 +1,13 @@
+{
+  "idea": "a quiet detective scene in a rainy alley",
+  "workflow": "storyboard-creator",
+  "model": "gemini-3-pro-image-preview",
+  "status": "SUCCEEDED",
+  "outputs": [
+    {
+      "type": "storyboard",
+      "path": "assets/storyboard.png",
+      "description": "Pencil-sketch noir frame: detective under a lamppost in a rainy alley with fire escapes, broken umbrella, and a sodden newspaper on cobblestones"
+    }
+  ]
+}

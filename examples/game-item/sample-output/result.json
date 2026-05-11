@@ -1,0 +1,19 @@
+{
+  "item": {
+    "name": "Sapphire Rune-Staff",
+    "description": "A jeweled rune-staff with a glowing sapphire core, oak handle, in hex color #2C5F8D",
+    "color": "#2C5F8D"
+  },
+  "motion": "Subtle levitating loop with gentle sapphire glow",
+  "workflow": {
+    "name": "game-item-generator",
+    "icon_renderer": "Runway gen4 / gen4-turbo",
+    "animation_renderer": "veo3.1-generate-001"
+  },
+  "rarity_variants": [
+    { "tier": "common",    "animated_icon": "assets/animated-icon-common.mp4",    "preview": "assets/preview-common.jpg" },
+    { "tier": "uncommon",  "animated_icon": "assets/animated-icon-uncommon.mp4" },
+    { "tier": "rare",      "animated_icon": "assets/animated-icon-rare.mp4" },
+    { "tier": "legendary", "animated_icon": "assets/animated-icon-legendary.mp4", "preview": "assets/preview-legendary.jpg" }
+  ]
+}

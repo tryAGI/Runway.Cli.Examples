@@ -79,12 +79,36 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
       <td><strong>163</strong><br/>(1 char image + <code>json-to-manga</code> workflow producing 8 panels)</td>
     </tr>
     <tr>
+      <td><a href="./examples/storyboard/"><img src="./examples/storyboard/sample-output/assets/storyboard.png" width="220" alt="Pencil-sketch noir storyboard: detective in a rainy alley"></a></td>
+      <td><a href="./examples/storyboard/"><code>storyboard</code></a></td>
+      <td><em>"a quiet detective scene in a rainy alley"</em></td>
+      <td>1 storyboard PNG + <code>result.json</code></td>
+      <td><strong>~1 min</strong></td>
+      <td><strong>21</strong><br/>(1 × <code>storyboard-creator</code>)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/image-to-video/"><img src="./examples/image-to-video/sample-output/assets/still.png" width="220" alt="Hero still: peach on marble counter, food-magazine style"></a></td>
+      <td><a href="./examples/image-to-video/"><code>image-to-video</code></a></td>
+      <td><em>"a ripe peach on marble, soft window light — animate it with a slow push-in"</em></td>
+      <td>1 still PNG + 1 animation MP4 + <code>result.json</code></td>
+      <td><strong>~3 min</strong></td>
+      <td><strong>55</strong><br/>(image + <code>gen4-turbo</code> animation)</td>
+    </tr>
+    <tr>
       <td><a href="./examples/short-video/"><img src="./examples/short-video/sample-output/assets/shot-still.png" width="220" alt="Aerial sunrise still: motorcycle on misty mountain pass"></a></td>
       <td><a href="./examples/short-video/"><code>short-video</code></a></td>
       <td><em>"a short cinematic video of a vintage motorcycle through a foggy mountain pass at sunrise"</em></td>
       <td>3-shot stitched MP4 (18 s) + plan.json + <code>result.json</code></td>
       <td><strong>~6 min</strong></td>
       <td><strong>200</strong><br/>(3 × <code>gemini-image3-pro</code> keyframes + 3 × <code>veo3.1-fast</code> shots)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/game-item/"><img src="./examples/game-item/sample-output/assets/preview-legendary.jpg" width="220" alt="Legendary sapphire rune-staff with brass armillary and blue core"></a></td>
+      <td><a href="./examples/game-item/"><code>game-item</code></a></td>
+      <td><em>"design a jeweled sapphire rune-staff with 4 rarity variants and an animated icon"</em></td>
+      <td>4 rarity-tier animated MP4s + <code>result.json</code></td>
+      <td><strong>~6 min</strong></td>
+      <td><strong>675</strong><br/>(<code>game-item-generator</code> renders 4 icons + 4 animated icons on <code>veo3.1</code>)</td>
     </tr>
     <tr>
       <td><a href="./examples/wine-label/"><img src="./examples/wine-label/sample-output/assets/04-composited-bottle.png" width="220" alt="Stellar Vines composited bottle hero shot"></a></td>
@@ -128,15 +152,18 @@ This drops the skill at `.claude/skills/runway-cli/SKILL.md` (provided by the [s
 ## Run an example
 
 ```bash
-./examples/audio/run.sh             # ~30 s, $0.15 Claude,    7 Runway credits
-./examples/product-photoshoot/run.sh # ~3 min,$0.19 Claude,   4 Runway credits (gpt_image_2 low-q)
-./examples/image/run.sh             # ~49 s, $0.15 Claude,    7 Runway credits
-./examples/haircut/run.sh           # ~3 min,$0.31 Claude,   95 Runway credits
-./examples/virtual-try-on/run.sh    # ~3 min,$0.66 Claude,   91 Runway credits
-./examples/mockup/run.sh            # ~3 min,$0.20 Claude,   96 Runway credits
-./examples/manga/run.sh             # ~6 min,$0.58 Claude,  163 Runway credits (workflow-nudged)
-./examples/short-video/run.sh       # ~6 min,$0.61 Claude,  200 Runway credits
-./examples/wine-label/run.sh        # ~7 min,$0.65 Claude, 1241 Runway credits (video!)
+./examples/audio/run.sh              # ~30 s, $0.15 Claude,    7 Runway credits
+./examples/product-photoshoot/run.sh # ~3 min,$0.19 Claude,    4 Runway credits (gpt_image_2 low-q)
+./examples/image/run.sh              # ~49 s, $0.15 Claude,    7 Runway credits
+./examples/storyboard/run.sh         # ~1 min,$0.16 Claude,   21 Runway credits
+./examples/image-to-video/run.sh     # ~3 min,$0.20 Claude,   55 Runway credits
+./examples/haircut/run.sh            # ~3 min,$0.31 Claude,   95 Runway credits
+./examples/virtual-try-on/run.sh     # ~3 min,$0.66 Claude,   91 Runway credits
+./examples/mockup/run.sh             # ~3 min,$0.20 Claude,   96 Runway credits
+./examples/manga/run.sh              # ~6 min,$0.58 Claude,  163 Runway credits (workflow-nudged)
+./examples/short-video/run.sh        # ~6 min,$0.61 Claude,  200 Runway credits
+./examples/game-item/run.sh          # ~6 min,$0.32 Claude,  675 Runway credits (4 animated MP4s)
+./examples/wine-label/run.sh         # ~7 min,$0.65 Claude, 1241 Runway credits (video!)
 ```
 
 Output lands in `output/<example>/<ISO-timestamp>/`:
@@ -158,22 +185,24 @@ Each example also commits a `sample-output/` directory containing real artifacts
 | audio (text-to-speech + sound-effect) | shipped | [`examples/audio/`](./examples/audio/) |
 | image (json-to-image)          | shipped    | [`examples/image/`](./examples/image/) |
 | product-photoshoot             | shipped    | [`examples/product-photoshoot/`](./examples/product-photoshoot/) |
+| storyboard (storyboard-creator) | shipped   | [`examples/storyboard/`](./examples/storyboard/) |
+| image-to-video                 | shipped    | [`examples/image-to-video/`](./examples/image-to-video/) |
 | haircut (ai-hair-salon)        | shipped    | [`examples/haircut/`](./examples/haircut/) |
 | virtual-try-on                 | shipped    | [`examples/virtual-try-on/`](./examples/virtual-try-on/) |
 | mockup (mockup-generator)      | shipped    | [`examples/mockup/`](./examples/mockup/) |
 | manga (json-to-manga)          | shipped    | [`examples/manga/`](./examples/manga/) |
 | short-video                    | shipped    | [`examples/short-video/`](./examples/short-video/) |
+| game-item (game-item-generator)| shipped    | [`examples/game-item/`](./examples/game-item/) |
 | wine-label (wine-label-generator) | shipped | [`examples/wine-label/`](./examples/wine-label/) |
-| video                          | planned    | `examples/video/`                 |
-| image-to-video                 | planned    | `examples/image-to-video/`        |
+| video (text-to-video direct)   | planned    | `examples/video/`                 |
 | marketplace-cards              | planned    | `examples/marketplace-cards/`     |
 | ad-video                       | planned    | `examples/ad-video/`              |
 | avatar                         | planned    | `examples/avatar/`                |
 | soul-id                        | planned    | `examples/soul-id/`               |
-| photo-restyle                  | planned    | `examples/photo-restyle/`         |
-| story-sequence                 | planned    | `examples/story-sequence/`        |
-| character-item                 | planned    | `examples/character-item/`        |
-| video-sandbox                  | planned    | `examples/video-sandbox/`         |
+| character-creator              | planned    | `examples/character-creator/`     |
+| b-roll-generator               | planned    | `examples/b-roll-generator/`      |
+| backplate-generator            | planned    | `examples/backplate-generator/`   |
+| human-pose-replication         | planned    | `examples/human-pose-replication/` |
 | (more named workflows)         | planned    | —                                 |
 
 The goal is **one example per Runway CLI workflow** — each with the same showcase layout so you can scan the whole repo and see Runway's surface area at a glance.
