@@ -1,0 +1,15 @@
+{
+  "brief": "transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic",
+  "mode": "social_carousel",
+  "model": "gpt_image_2",
+  "ratio": "1920:1920",
+  "quality": "low",
+  "shots": 4,
+  "plan": "recipe-plan.json",
+  "images": [
+    { "index": 1, "label": "hook",      "path": "assets/01-hook.png" },
+    { "index": 2, "label": "benefit",   "path": "assets/02-benefit.png" },
+    { "index": 3, "label": "detail",    "path": "assets/03-detail.png" },
+    { "index": 4, "label": "lifestyle", "path": "assets/04-lifestyle.png" }
+  ]
+}

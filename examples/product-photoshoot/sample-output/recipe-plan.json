@@ -1,0 +1,59 @@
+{
+  "kind": "product_photoshoot",
+  "mode": "social_carousel",
+  "sourcePrompt": "transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic",
+  "prompt": "transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic",
+  "model": "gpt_image_2",
+  "ratio": "1920:1920",
+  "count": 4,
+  "quality": "low",
+  "referenceImages": [],
+  "assets": [],
+  "notes": [
+    "Runway-native image recipe for GPT Image 2 or another selected Runway image model.",
+    "Prompt structure uses concise sensory detail, camera, lighting, styling, and positive phrasing.",
+    "Reference images are treated as product identity and styling anchors when supplied."
+  ],
+  "jobs": [
+    {
+      "index": 1,
+      "count": 4,
+      "label": "hook",
+      "prompt": "Runway GPT Image 2 product photoshoot prompt. Subject: transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic. Mode: social carousel. Frame label: hook. Create a social carousel panel focused on hook with a direct visual hook and clean product readability. Compose with clear product readability, a precise camera angle, tactile materials, controlled lighting, and positive phrasing. Keep props intentional and on-brand, preserve packaging accuracy, and include only requested text or logos.",
+      "model": "gpt_image_2",
+      "ratio": "1920:1920",
+      "quality": "low",
+      "referenceImages": []
+    },
+    {
+      "index": 2,
+      "count": 4,
+      "label": "benefit",
+      "prompt": "Runway GPT Image 2 product photoshoot prompt. Subject: transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic. Mode: social carousel. Frame label: benefit. Create a social carousel panel focused on benefit with a direct visual hook and clean product readability. Compose with clear product readability, a precise camera angle, tactile materials, controlled lighting, and positive phrasing. Keep props intentional and on-brand, preserve packaging accuracy, and include only requested text or logos.",
+      "model": "gpt_image_2",
+      "ratio": "1920:1920",
+      "quality": "low",
+      "referenceImages": []
+    },
+    {
+      "index": 3,
+      "count": 4,
+      "label": "detail",
+      "prompt": "Runway GPT Image 2 product photoshoot prompt. Subject: transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic. Mode: social carousel. Frame label: detail. Create a social carousel panel focused on detail with a direct visual hook and clean product readability. Compose with clear product readability, a precise camera angle, tactile materials, controlled lighting, and positive phrasing. Keep props intentional and on-brand, preserve packaging accuracy, and include only requested text or logos.",
+      "model": "gpt_image_2",
+      "ratio": "1920:1920",
+      "quality": "low",
+      "referenceImages": []
+    },
+    {
+      "index": 4,
+      "count": 4,
+      "label": "lifestyle",
+      "prompt": "Runway GPT Image 2 product photoshoot prompt. Subject: transparent acrylic Bluetooth speaker on a brushed steel kitchen counter, premium lifestyle aesthetic. Mode: social carousel. Frame label: lifestyle. Create a social carousel panel focused on lifestyle with a direct visual hook and clean product readability. Compose with clear product readability, a precise camera angle, tactile materials, controlled lighting, and positive phrasing. Keep props intentional and on-brand, preserve packaging accuracy, and include only requested text or logos.",
+      "model": "gpt_image_2",
+      "ratio": "1920:1920",
+      "quality": "low",
+      "referenceImages": []
+    }
+  ]
+}

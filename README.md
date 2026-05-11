@@ -23,12 +23,36 @@ Each example is a tiny bash wrapper that hands a **minimal user-style prompt** t
   </thead>
   <tbody>
     <tr>
+      <td align="center" style="width:220px"><a href="./examples/audio/">🔊<br/><em>audio-only<br/>(no visual)</em></a></td>
+      <td><a href="./examples/audio/"><code>audio</code></a></td>
+      <td><em>"a launch-VO line plus a matching short SFX clip"</em></td>
+      <td>1 voice MP3 + 1 SFX MP3 + <code>result.json</code></td>
+      <td><strong>~30 s</strong></td>
+      <td><strong>7</strong><br/>(<code>text-to-speech</code> + <code>sound-effect</code>)</td>
+    </tr>
+    <tr>
       <td><a href="./examples/image/"><img src="./examples/image/sample-output/assets/coffee-grinder.png" width="220" alt="Minimalist coffee grinder"></a></td>
       <td><a href="./examples/image/"><code>image</code></a></td>
       <td><em>"a minimalist coffee grinder on brushed steel, soft morning light"</em></td>
       <td>1 PNG + <code>result.json</code></td>
       <td><strong>~49 s</strong></td>
       <td><strong>7</strong><br/>(1 × <code>runway image</code>)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/product-photoshoot/"><img src="./examples/product-photoshoot/sample-output/assets/01-hook.png" width="220" alt="Transparent Bluetooth speaker social-carousel ad"></a></td>
+      <td><a href="./examples/product-photoshoot/"><code>product-photoshoot</code></a></td>
+      <td><em>"a transparent Bluetooth speaker on brushed steel — full social-carousel"</em></td>
+      <td>4 publication-ready ad shots + recipe plan + <code>result.json</code></td>
+      <td><strong>~3 min</strong></td>
+      <td><strong>4</strong><br/>(<code>product-photoshoot create --mode social_carousel</code> on <code>gpt_image_2</code> low-quality)</td>
+    </tr>
+    <tr>
+      <td><a href="./examples/mockup/"><img src="./examples/mockup/sample-output/assets/02-placement-escalator.png" width="220" alt="Northbound compass-rose logo on subway escalator billboard"></a></td>
+      <td><a href="./examples/mockup/"><code>mockup</code></a></td>
+      <td><em>"generate a logo, then place it into 4 advertising mockups via mockup-generator"</em></td>
+      <td>1 logo + 4 placement renders + <code>result.json</code></td>
+      <td><strong>~3 min</strong></td>
+      <td><strong>96</strong><br/>(image + <code>mockup-generator</code> workflow)</td>
     </tr>
     <tr>
       <td><a href="./examples/haircut/"><img src="./examples/haircut/sample-output/assets/02-after-bob-blonde.png" width="220" alt="Restyled portrait: bob with blonde highlights against sunset"></a></td>
@@ -104,12 +128,15 @@ This drops the skill at `.claude/skills/runway-cli/SKILL.md` (provided by the [s
 ## Run an example
 
 ```bash
-./examples/image/run.sh           # ~49 s,  $0.15 Claude,    7 Runway credits
-./examples/haircut/run.sh         # ~3 min, $0.31 Claude,   95 Runway credits
-./examples/virtual-try-on/run.sh  # ~3 min, $0.66 Claude,   91 Runway credits
-./examples/short-video/run.sh     # ~6 min, $0.61 Claude,  200 Runway credits
-./examples/manga/run.sh           # ~6 min,  $0.58 Claude,  163 Runway credits (workflow-nudged)
-./examples/wine-label/run.sh      # ~7 min, $0.65 Claude, 1241 Runway credits (video!)
+./examples/audio/run.sh             # ~30 s, $0.15 Claude,    7 Runway credits
+./examples/product-photoshoot/run.sh # ~3 min,$0.19 Claude,   4 Runway credits (gpt_image_2 low-q)
+./examples/image/run.sh             # ~49 s, $0.15 Claude,    7 Runway credits
+./examples/haircut/run.sh           # ~3 min,$0.31 Claude,   95 Runway credits
+./examples/virtual-try-on/run.sh    # ~3 min,$0.66 Claude,   91 Runway credits
+./examples/mockup/run.sh            # ~3 min,$0.20 Claude,   96 Runway credits
+./examples/manga/run.sh             # ~6 min,$0.58 Claude,  163 Runway credits (workflow-nudged)
+./examples/short-video/run.sh       # ~6 min,$0.61 Claude,  200 Runway credits
+./examples/wine-label/run.sh        # ~7 min,$0.65 Claude, 1241 Runway credits (video!)
 ```
 
 Output lands in `output/<example>/<ISO-timestamp>/`:
@@ -128,21 +155,22 @@ Each example also commits a `sample-output/` directory containing real artifacts
 
 | Workflow                       | Status     | Path                              |
 |--------------------------------|------------|-----------------------------------|
+| audio (text-to-speech + sound-effect) | shipped | [`examples/audio/`](./examples/audio/) |
 | image (json-to-image)          | shipped    | [`examples/image/`](./examples/image/) |
+| product-photoshoot             | shipped    | [`examples/product-photoshoot/`](./examples/product-photoshoot/) |
 | haircut (ai-hair-salon)        | shipped    | [`examples/haircut/`](./examples/haircut/) |
 | virtual-try-on                 | shipped    | [`examples/virtual-try-on/`](./examples/virtual-try-on/) |
+| mockup (mockup-generator)      | shipped    | [`examples/mockup/`](./examples/mockup/) |
 | manga (json-to-manga)          | shipped    | [`examples/manga/`](./examples/manga/) |
 | short-video                    | shipped    | [`examples/short-video/`](./examples/short-video/) |
 | wine-label (wine-label-generator) | shipped | [`examples/wine-label/`](./examples/wine-label/) |
 | video                          | planned    | `examples/video/`                 |
 | image-to-video                 | planned    | `examples/image-to-video/`        |
-| product-photoshoot             | planned    | `examples/product-photoshoot/`    |
 | marketplace-cards              | planned    | `examples/marketplace-cards/`     |
 | ad-video                       | planned    | `examples/ad-video/`              |
 | avatar                         | planned    | `examples/avatar/`                |
 | soul-id                        | planned    | `examples/soul-id/`               |
 | photo-restyle                  | planned    | `examples/photo-restyle/`         |
-| scene-composition              | planned    | `examples/scene-composition/`     |
 | story-sequence                 | planned    | `examples/story-sequence/`        |
 | character-item                 | planned    | `examples/character-item/`        |
 | video-sandbox                  | planned    | `examples/video-sandbox/`         |

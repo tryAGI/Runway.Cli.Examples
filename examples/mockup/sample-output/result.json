@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "name": "Northbound",
+    "category": "travel",
+    "description": "Fictional travel brand with a minimalist navy compass-rose identity"
+  },
+  "logo": {
+    "prompt": "Minimalist navy compass-rose icon, centered on a plain white background, flat vector style, clean geometric lines, deep navy blue (#1B2A4A) petals with thin white separators, no text, no border, logo mark only",
+    "model": "gemini-2.5-flash",
+    "path": "assets/01-logo.png"
+  },
+  "mockup": {
+    "brief": "Subway billboard at evening commute, glossy paper, urban setting",
+    "workflow": "mockup-generator",
+    "placements": [
+      { "index": 1, "path": "assets/02-placement-escalator.png" },
+      { "index": 2, "path": "assets/03-placement-platform.png" },
+      { "index": 3, "path": "assets/04-placement-3.png" },
+      { "index": 4, "path": "assets/05-placement-4.png" }
+    ]
+  }
+}

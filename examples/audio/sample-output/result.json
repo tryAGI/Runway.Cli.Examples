@@ -1,0 +1,9 @@
+{
+  "voice_preset": "clara",
+  "spoken_line": "Welcome to the launch — the future of editing starts here.",
+  "sfx_prompt": "cinematic camera shutter click followed by a soft airy whoosh, short and elegant, under 5 seconds",
+  "assets": {
+    "voiceover":    "assets/voice.mp3",
+    "sound_effect": "assets/sfx.mp3"
+  }
+}
