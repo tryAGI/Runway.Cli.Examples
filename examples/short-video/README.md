@@ -28,9 +28,9 @@ One CLI call (`runway short-video`) that fans out into one planner pass + N shot
 
 ### Final stitched video
 
-![Stitched video preview (first 8 s)](./sample-output/assets/short-video-preview.gif)
+<video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/short-video/sample-output/assets/short-video.mp4" controls muted playsinline width="480"></video>
 
-Full-quality MP4 (1280×720, 18 s): [`sample-output/assets/short-video.mp4`](./sample-output/assets/short-video.mp4).
+1280×720, 18 s. Download: [`sample-output/assets/short-video.mp4`](./sample-output/assets/short-video.mp4).
 
 ### Shot still (keyframe)
 

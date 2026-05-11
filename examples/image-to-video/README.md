@@ -34,11 +34,11 @@ Two Runway calls: one image, one image-to-video.
 
 ### Still and final animation
 
-|  Hero still (generated)                                |  Final animation (gen4-turbo)                                       |
-|--------------------------------------------------------|---------------------------------------------------------------------|
-| ![Hero still](./sample-output/assets/still.png)        | ![Animation preview](./sample-output/assets/animation-preview.gif)  |
+|  Hero still (generated)                                |  Final animation (gen4-turbo)                                                              |
+|--------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| ![Hero still](./sample-output/assets/still.png)        | <video src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/image-to-video/sample-output/assets/animation.mp4" controls muted playsinline width="360"></video> |
 
-Full-quality MP4: [`sample-output/assets/animation.mp4`](./sample-output/assets/animation.mp4).
+Download: [`sample-output/assets/animation.mp4`](./sample-output/assets/animation.mp4).
 
 ### The `result.json` Claude wrote
 

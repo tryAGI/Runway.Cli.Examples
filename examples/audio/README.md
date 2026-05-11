@@ -29,11 +29,15 @@ Two Runway calls total, both audio.
 
 ### Voice-over
 
-[`sample-output/assets/voice.mp3`](./sample-output/assets/voice.mp3) — Runway TTS. GitHub renders MP3s as a download link in READMEs.
+<audio src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/audio/sample-output/assets/voice.mp3" controls></audio>
+
+Runway TTS, voice preset `clara`. Download: [`sample-output/assets/voice.mp3`](./sample-output/assets/voice.mp3).
 
 ### Sound effect
 
-[`sample-output/assets/sfx.mp3`](./sample-output/assets/sfx.mp3) — Runway SFX.
+<audio src="https://github.com/tryAGI/Runway.Cli.Examples/raw/main/examples/audio/sample-output/assets/sfx.mp3" controls></audio>
+
+Runway SFX. Download: [`sample-output/assets/sfx.mp3`](./sample-output/assets/sfx.mp3).
 
 ### The `result.json` Claude wrote
 
